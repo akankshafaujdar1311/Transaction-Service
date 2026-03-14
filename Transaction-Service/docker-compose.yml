@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: transactions-db
+    environment:
+      POSTGRES_DB: transactions
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    container_name: transactions-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
