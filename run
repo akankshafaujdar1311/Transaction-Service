@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+# Build the project
+./gradlew build
+
+# Build Docker image
+docker build -t transaction-service .
+
+# Run Docker container
+# Remove any existing container with the same name
+docker rm -f transaction-service || true
+
+docker run --name transaction-service -p 8080:8080 transaction-service
+
