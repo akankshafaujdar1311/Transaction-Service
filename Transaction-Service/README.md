@@ -47,6 +47,3 @@ To run tests:
 ```
 ./gradlew test
 ```
-
-## Observability
-A `compose.yaml` is provided for running Grafana LGTM stack for observability (see `compose.yaml`).
