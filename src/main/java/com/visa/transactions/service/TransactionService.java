@@ -7,6 +7,7 @@ import com.visa.transactions.repository.TransactionRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class TransactionService {
@@ -18,6 +19,10 @@ public class TransactionService {
                               AccountRepository accountRepository) {
         this.transactionRepository = transactionRepository;
         this.accountRepository = accountRepository;
+    }
+
+    public List<Transaction> getTransactionByAccountId(Long accountId){
+        return transactionRepository.findByAccountId(accountId);
     }
 
     public Transaction createTransaction(TransactionRequest request) {

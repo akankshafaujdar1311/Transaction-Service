@@ -1,13 +1,12 @@
 package com.visa.transactions.dto;
 
 import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class TransactionRequest {
-
-    @Getter
     private Long accountId;
-    @Getter
     private Integer operationTypeId;
-    @Getter
     private Double amount;
 }
